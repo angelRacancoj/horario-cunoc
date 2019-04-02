@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package javaapplication1;
+package algoritmo_horario;
 
 /**
  *
  * @author angelrg
  */
-public class JavaApplication1 {
+public class run {
 
     /**
      * @param args the command line arguments
