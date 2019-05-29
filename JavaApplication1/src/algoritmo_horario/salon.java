@@ -20,6 +20,12 @@ public class salon {
         this.nombre = nombre;
         this.capacidad = capacidad;
     }
+    
+    public salon(String id, String nombre, String capacidad) {
+        this.id = Integer.getInteger(id);
+        this.nombre = nombre;
+        this.capacidad = Integer.getInteger(capacidad);
+    }
 
     public salon() {
     }

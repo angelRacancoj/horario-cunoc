@@ -5,7 +5,7 @@
  */
 package algoritmo_horario;
 
-import org.joda.time.DateTime;
+import org.joda.time.LocalTime;
 
 /**
  *
@@ -13,17 +13,35 @@ import org.joda.time.DateTime;
  */
 public class casillaHorario {
     int idSalon;
-    DateTime initHour;
-    DateTime endHour;
+    LocalTime initHour;
+    LocalTime endHour;
     int idCurso;
     int idDocente;
+    int dia;
 
-    public casillaHorario(int idSalon, DateTime initHour, DateTime endHour, int idCurso, int idDocente) {
+    public casillaHorario(int idSalon, LocalTime initHour, LocalTime endHour, int idCurso, int idDocente) {
         this.idSalon = idSalon;
         this.initHour = initHour;
         this.endHour = endHour;
         this.idCurso = idCurso;
         this.idDocente = idDocente;
+    }
+
+    public casillaHorario(int idSalon, LocalTime initHour, LocalTime endHour) {
+        this.idSalon = idSalon;
+        this.initHour = initHour;
+        this.endHour = endHour;
+    }
+    
+    public casillaHorario(String idSalon, String initHour, String endHour) {
+        this.idSalon = Integer.getInteger(idSalon);
+        this.initHour = LocalTime.parse(initHour);
+        this.endHour = LocalTime.parse(endHour);
+    }
+    
+    @Override
+    public casillaHorario clone(){
+        return new casillaHorario(this.idSalon, this.initHour, this.endHour);
     }
 
     public casillaHorario() {
@@ -33,23 +51,19 @@ public class casillaHorario {
         return idSalon;
     }
 
-    public void setIdSalon(int idSalon) {
-        this.idSalon = idSalon;
-    }
-
-    public DateTime getInitHour() {
+    public LocalTime getInitHour() {
         return initHour;
     }
 
-    public void setInitHour(DateTime initHour) {
+    public void setInitHour(LocalTime initHour) {
         this.initHour = initHour;
     }
 
-    public DateTime getEndHour() {
+    public LocalTime getEndHour() {
         return endHour;
     }
 
-    public void setEndHour(DateTime endHour) {
+    public void setEndHour(LocalTime endHour) {
         this.endHour = endHour;
     }
 
@@ -67,5 +81,13 @@ public class casillaHorario {
 
     public void setIdDocente(int idDocente) {
         this.idDocente = idDocente;
+    }
+
+    public int getDia() {
+        return dia;
+    }
+
+    public void setDia(int dia) {
+        this.dia = dia;
     }
 }

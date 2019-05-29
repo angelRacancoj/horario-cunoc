@@ -12,20 +12,37 @@ package algoritmo_horario;
 public class curso {
     int idCurso;
     String nombreCurso;
-    int periodosLunes;
-    int periodosMartes;
-    int periodosMiercoles;
-    int periodosJueves;
-    int periodosViernes;
+    boolean Lunes;
+    boolean Martes;
+    boolean Miercoles;
+    boolean Jueves;
+    boolean Viernes;
+    int totalAlumnos;
+    int alumnosRestantes;
 
-    public curso(int idCurso, String nombreCurso, int periodosLunes, int periodosMartes, int periodosMiercoles, int periodosJueves, int periodosViernes) {
+    public curso(int idCurso, String nombreCurso, boolean Lunes, boolean Martes, boolean Miercoles, boolean Jueves, boolean Viernes, int totalAlumnos) {
         this.idCurso = idCurso;
         this.nombreCurso = nombreCurso;
-        this.periodosLunes = periodosLunes;
-        this.periodosMartes = periodosMartes;
-        this.periodosMiercoles = periodosMiercoles;
-        this.periodosJueves = periodosJueves;
-        this.periodosViernes = periodosViernes;
+        this.Lunes = Lunes;
+        this.Martes = Martes;
+        this.Miercoles = Miercoles;
+        this.Jueves = Jueves;
+        this.Viernes = Viernes;
+        this.totalAlumnos = totalAlumnos;
+        this.alumnosRestantes = totalAlumnos;
+    }
+
+
+    public curso(String idCurso, String nombreCurso, String Lunes, String Martes, String Miercoles, String Jueves, String Viernes, String totalAlumnos) {
+        this.idCurso = Integer.getInteger(idCurso);
+        this.nombreCurso = nombreCurso;
+        this.Lunes = Boolean.getBoolean(Lunes);
+        this.Martes = Boolean.getBoolean(Martes);
+        this.Miercoles = Boolean.getBoolean(Miercoles);
+        this.Jueves = Boolean.getBoolean(Jueves);
+        this.Viernes = Boolean.getBoolean(Viernes);
+        this.totalAlumnos = Integer.getInteger(totalAlumnos);
+        this.alumnosRestantes = Integer.getInteger(totalAlumnos);
     }
 
     public curso() {
@@ -47,43 +64,59 @@ public class curso {
         this.nombreCurso = nombreCurso;
     }
 
-    public int getPeriodosLunes() {
-        return periodosLunes;
+    public boolean isLunes() {
+        return Lunes;
     }
 
-    public void setPeriodosLunes(int periodosLunes) {
-        this.periodosLunes = periodosLunes;
+    public void setLunes(boolean Lunes) {
+        this.Lunes = Lunes;
     }
 
-    public int getPeriodosMartes() {
-        return periodosMartes;
+    public boolean isMartes() {
+        return Martes;
     }
 
-    public void setPeriodosMartes(int periodosMartes) {
-        this.periodosMartes = periodosMartes;
+    public void setMartes(boolean Martes) {
+        this.Martes = Martes;
     }
 
-    public int getPeriodosMiercoles() {
-        return periodosMiercoles;
+    public boolean isMiercoles() {
+        return Miercoles;
     }
 
-    public void setPeriodosMiercoles(int periodosMiercoles) {
-        this.periodosMiercoles = periodosMiercoles;
+    public void setMiercoles(boolean Miercoles) {
+        this.Miercoles = Miercoles;
     }
 
-    public int getPeriodosJueves() {
-        return periodosJueves;
+    public boolean isJueves() {
+        return Jueves;
     }
 
-    public void setPeriodosJueves(int periodosJueves) {
-        this.periodosJueves = periodosJueves;
+    public void setJueves(boolean Jueves) {
+        this.Jueves = Jueves;
     }
 
-    public int getPeriodosViernes() {
-        return periodosViernes;
+    public boolean isViernes() {
+        return Viernes;
     }
 
-    public void setPeriodosViernes(int periodosViernes) {
-        this.periodosViernes = periodosViernes;
+    public void setViernes(boolean Viernes) {
+        this.Viernes = Viernes;
+    }
+
+    public int getTotalAlumnos() {
+        return totalAlumnos;
+    }
+
+    public void setTotalAlumnos(int totalAlumnos) {
+        this.totalAlumnos = totalAlumnos;
+    }
+
+    public int getAlumnosRestantes() {
+        return alumnosRestantes;
+    }
+
+    public void setAlumnosRestantes(int alumnosRestantes) {
+        this.alumnosRestantes = alumnosRestantes;
     }
 }
