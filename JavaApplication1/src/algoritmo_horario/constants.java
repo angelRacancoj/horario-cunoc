@@ -26,6 +26,11 @@ public class constants {
     public float alpha;
     public float beta;
     
+    public static int CURSO_OBLIGATORIO = 1;
+    public static int CURSO_NO_OBLIGATORIO = 0;
+    public static int PRIMER_SEMESTRE = 1;
+    public static int SEGUNDO_SEMESTRE = 2;
+    
     public static int LUNES = 0;
     public static int MARTES = 1;
     public static int MIERCOLES = 2;
@@ -36,8 +41,6 @@ public class constants {
         this.conexion = conexion;
         cargarConstantes();
     }
-    
-    
 
     private void cargarConstantes(){
         try {

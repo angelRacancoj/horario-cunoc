@@ -26,7 +26,30 @@ public class CasillasHorarioDB {
         this.conexion = conexion;
     }
 
-    public LinkedList<LinkedList<casillaHorario>> getCasillasHorario(int minPeriodo) throws SQLException {
+    public LinkedList<LinkedList<LinkedList<casillaHorario>>> getHorario(int minPeriodo) throws InputsVaciosException {
+        LinkedList<LinkedList<LinkedList<casillaHorario>>> horario = new LinkedList<>();
+        try {
+            LinkedList<LinkedList<casillaHorario>> casillas = getCasillasHorario(minPeriodo);
+            for (int i = 0; i < 5; i++) {
+                    LinkedList<LinkedList<casillaHorario>> CHaux = new LinkedList<>();
+                for (LinkedList<casillaHorario> casilla : casillas) {
+                    LinkedList<casillaHorario> CasHor = new LinkedList<>();
+                    for (casillaHorario casillaH : casilla) {
+                        CasHor.add(casillaH.clone(i));
+                    }
+                    CHaux.add(CasHor);
+                }
+                horario.add(CHaux);
+            }
+            System.out.println("--------Casillas generadas--------");
+        } catch (SQLException e) {
+            e.getStackTrace();
+            throw new InputsVaciosException(e.getMessage());
+        }
+        return horario;
+    }
+
+    private LinkedList<LinkedList<casillaHorario>> getCasillasHorario(int minPeriodo) throws SQLException {
         LinkedList<LinkedList<casillaHorario>> casillasHorario = new LinkedList<>();
         try {
             LinkedList<casillaHorario> horario = getHorarios();

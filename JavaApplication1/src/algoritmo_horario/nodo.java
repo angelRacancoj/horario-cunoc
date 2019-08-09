@@ -12,17 +12,18 @@ import java.util.LinkedList;
  * @author angelrg
  */
 public class nodo {
+
+    int idNodo;
     int idCurso;
     int idDocente;
     LinkedList<peso> pesos;
 
-    public nodo(String idCurso, String idDocente) {
-        this.idCurso = Integer.getInteger(idCurso);
-        this.idDocente = Integer.getInteger(idDocente);
+    public nodo(int idNodo, int idCurso, int idDocente) {
+        this.idNodo = idNodo;
+        this.idCurso = idCurso;
+        this.idDocente = idDocente;
         this.pesos = null;
     }
-    
-    
 
     public nodo(int idCurso, int idDocente, LinkedList<peso> pesos) {
         this.idCurso = idCurso;
@@ -31,6 +32,14 @@ public class nodo {
     }
 
     public nodo() {
+    }
+
+    public int getIdNodo() {
+        return idNodo;
+    }
+
+    public void setIdNodo(int idNodo) {
+        this.idNodo = idNodo;
     }
 
     public int getIdCurso() {

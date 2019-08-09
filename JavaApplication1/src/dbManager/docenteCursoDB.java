@@ -40,9 +40,10 @@ public class docenteCursoDB {
         try {
             ResultSet resultado = sentencia.executeQuery();
             while (resultado.next()) {
-                String idCurso = resultado.getString("CURSO_id");
-                String idDocente = resultado.getString("DOCENTE_id");
-                nodos.add(new nodo(idCurso, idDocente));
+                int idNodo = resultado.getInt("id_p_d_c");
+                int idCurso = resultado.getInt("CURSO_id");
+                int idDocente = resultado.getInt("DOCENTE_id");
+                nodos.add(new nodo(idNodo,idCurso, idDocente));
             }
             System.out.println("------------Consulta Docente Curso--------------");
             resultado.close();

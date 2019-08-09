@@ -27,6 +27,13 @@ public class casillaHorario {
         this.idDocente = idDocente;
     }
 
+    public casillaHorario(int idSalon, LocalTime initHour, LocalTime endHour, int dia) {
+        this.idSalon = idSalon;
+        this.initHour = initHour;
+        this.endHour = endHour;
+        this.dia = dia;
+    }
+
     public casillaHorario(int idSalon, LocalTime initHour, LocalTime endHour) {
         this.idSalon = idSalon;
         this.initHour = initHour;
@@ -39,9 +46,8 @@ public class casillaHorario {
         this.endHour = LocalTime.parse(endHour);
     }
     
-    @Override
-    public casillaHorario clone(){
-        return new casillaHorario(this.idSalon, this.initHour, this.endHour);
+    public casillaHorario clone(int dia){
+        return new casillaHorario(this.idSalon, this.initHour, this.endHour, dia);
     }
 
     public casillaHorario() {
