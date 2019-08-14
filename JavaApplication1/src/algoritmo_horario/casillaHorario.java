@@ -41,7 +41,7 @@ public class casillaHorario {
     }
     
     public casillaHorario(String idSalon, String initHour, String endHour) {
-        this.idSalon = Integer.getInteger(idSalon);
+        this.idSalon = Integer.parseInt(idSalon);
         this.initHour = LocalTime.parse(initHour);
         this.endHour = LocalTime.parse(endHour);
     }

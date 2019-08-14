@@ -34,15 +34,15 @@ public class curso {
 
 
     public curso(String idCurso, String nombreCurso, String Lunes, String Martes, String Miercoles, String Jueves, String Viernes, String totalAlumnos) {
-        this.idCurso = Integer.getInteger(idCurso);
+        this.idCurso = Integer.parseInt(idCurso);
         this.nombreCurso = nombreCurso;
         this.Lunes = Boolean.getBoolean(Lunes);
         this.Martes = Boolean.getBoolean(Martes);
         this.Miercoles = Boolean.getBoolean(Miercoles);
         this.Jueves = Boolean.getBoolean(Jueves);
         this.Viernes = Boolean.getBoolean(Viernes);
-        this.totalAlumnos = Integer.getInteger(totalAlumnos);
-        this.alumnosRestantes = Integer.getInteger(totalAlumnos);
+        this.totalAlumnos = Integer.parseInt(totalAlumnos);
+        this.alumnosRestantes = Integer.parseInt(totalAlumnos);
     }
 
     public curso() {

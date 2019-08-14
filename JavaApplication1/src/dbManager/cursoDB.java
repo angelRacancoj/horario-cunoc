@@ -30,13 +30,13 @@ public class cursoDB {
             PreparedStatement sentencia = conexion.prepareStatement(queries.curso_dias);
             return consultaCliente(sentencia);
         } catch (InputsVaciosException | SQLException e) {
+            e.printStackTrace();
             throw new InputsVaciosException("Error en la consulta de los Cursos");
         }
     }
 
     private LinkedList<curso> consultaCliente(PreparedStatement sentencia) throws InputsVaciosException {
         LinkedList<curso> cursos = new LinkedList<>();
-        cursos.clear();
 
         try {
             ResultSet resultado = sentencia.executeQuery();
@@ -49,12 +49,14 @@ public class cursoDB {
                 String jueves = resultado.getString("jueves");
                 String viernes = resultado.getString("viernes");
                 String alumnos = resultado.getString("alumnos");
+                System.out.println("Info:"+id+","+nombre+","+lunes+","+martes+","+miercoles+","+viernes+","+alumnos);
                 cursos.add(new curso(id, nombre, lunes, martes, miercoles, jueves, viernes, alumnos));
             }
             System.out.println("-----------Consulta Curso-------------");
             resultado.close();
             sentencia.close();
         } catch (SQLException e) {
+            e.getStackTrace();
             throw new InputsVaciosException(e.getMessage());
         }
         return cursos;

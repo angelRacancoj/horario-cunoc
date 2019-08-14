@@ -115,7 +115,7 @@ public class pesosDB {
                             PreparedStatement sentencia5 = conexion.prepareStatement(queries.PRIMER_SEMESTRE);
                             sentencia5.setString(1, String.valueOf(nodoSecundario.getIdCurso()));
 
-                            ResultSet resultado5 = sentencia4.executeQuery();
+                            ResultSet resultado5 = sentencia5.executeQuery();
                             while (resultado5.next()) {
                                 int aux = resultado5.getInt("COUNT(*)");
                                 if (aux > 0) {
@@ -130,7 +130,7 @@ public class pesosDB {
                             PreparedStatement sentencia5 = conexion.prepareStatement(queries.SEGUNDO_SEMESTRE);
                             sentencia5.setString(1, String.valueOf(nodoSecundario.getIdCurso()));
 
-                            ResultSet resultado5 = sentencia4.executeQuery();
+                            ResultSet resultado5 = sentencia5.executeQuery();
                             while (resultado5.next()) {
                                 int aux = resultado5.getInt("COUNT(*)");
                                 if (aux > 0) {
@@ -144,10 +144,8 @@ public class pesosDB {
                         }
 
                         //Se obtiene una proporcion de alumno del Curso al que se conectara.
-                        PreparedStatement sentencia6 = conexion.prepareStatement(queries.SON_OBLIGATORIOS);
+                        PreparedStatement sentencia6 = conexion.prepareStatement(queries.PROPORCION_ALUMNOS);
                         sentencia6.setString(1, String.valueOf(nodoSecundario.getIdCurso()));
-                        sentencia6.setString(2, String.valueOf(nodoActual.getIdCurso()));
-                        sentencia6.setString(3, String.valueOf(constants.CURSO_OBLIGATORIO));
 
                         ResultSet resultado6 = sentencia6.executeQuery();
                         while (resultado6.next()) {
@@ -158,6 +156,7 @@ public class pesosDB {
 
 //                        pesos.add(new peso(nodoSecundario, (semestreCorrecto + esObligatorio + carreraCorrecto + mismoSemestre + proporcionAlumnos), cons.getFeromonas()));
                         pesos.add(new peso(nodoSecundario, (semestreCorrecto + esObligatorio + carreraCorrecto + mismoSemestre + proporcionAlumnos), feromona()));
+                        System.out.println("Peso: " + (semestreCorrecto + esObligatorio + carreraCorrecto + mismoSemestre + proporcionAlumnos) + ", Nodo: " + nodoSecundario.getIdNodo());
                     } else {
                         System.out.println("Es el mismo nodo, no se creara redundancia");
                     }

@@ -65,4 +65,8 @@ public class nodo {
     public void setPesos(LinkedList<peso> pesos) {
         this.pesos = pesos;
     }
+
+    public void imprimirDatos() {
+        System.out.println("Nodo id " + this.idNodo + " Curso: " + idCurso + " Docente: " + this.idDocente);
+    }
 }

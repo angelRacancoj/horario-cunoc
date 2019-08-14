@@ -22,9 +22,9 @@ public class salon {
     }
     
     public salon(String id, String nombre, String capacidad) {
-        this.id = Integer.getInteger(id);
+        this.id = Integer.parseInt(id);
         this.nombre = nombre;
-        this.capacidad = Integer.getInteger(capacidad);
+        this.capacidad = Integer.parseInt(capacidad);
     }
 
     public salon() {

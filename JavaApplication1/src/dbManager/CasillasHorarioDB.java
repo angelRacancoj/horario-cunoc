@@ -29,9 +29,10 @@ public class CasillasHorarioDB {
     public LinkedList<LinkedList<LinkedList<casillaHorario>>> getHorario(int minPeriodo) throws InputsVaciosException {
         LinkedList<LinkedList<LinkedList<casillaHorario>>> horario = new LinkedList<>();
         try {
-            LinkedList<LinkedList<casillaHorario>> casillas = getCasillasHorario(minPeriodo);
+            LinkedList<LinkedList<casillaHorario>> casillas = new LinkedList<>();
+            casillas = getCasillasHorario(minPeriodo);
             for (int i = 0; i < 5; i++) {
-                    LinkedList<LinkedList<casillaHorario>> CHaux = new LinkedList<>();
+                LinkedList<LinkedList<casillaHorario>> CHaux = new LinkedList<>();
                 for (LinkedList<casillaHorario> casilla : casillas) {
                     LinkedList<casillaHorario> CasHor = new LinkedList<>();
                     for (casillaHorario casillaH : casilla) {
@@ -57,13 +58,19 @@ public class CasillasHorarioDB {
             for (casillaHorario hor : horario) {
                 LinkedList<casillaHorario> CasillaH = existeCasillasClase(casillasHorario, hor.getIdSalon());
                 if (CasillaH != null) {
-                    for (LocalTime i = hor.getInitHour(); i.isBefore(hor.getEndHour().minusMinutes(minPeriodo)); i.plusMinutes(minPeriodo)) {
+                    LocalTime i = hor.getInitHour();
+                    while (i.isBefore(hor.getEndHour().minusMinutes(minPeriodo))) {  
+                        System.out.println("Hora: "+i.toString());
                         CasillaH.add(new casillaHorario(hor.getIdSalon(), i, i.plusMinutes(minPeriodo)));
+                        i = i.plusMinutes(minPeriodo);
                     }
                 } else {
                     LinkedList<casillaHorario> casillas = new LinkedList<>();
-                    for (LocalTime i = hor.getInitHour(); i.isBefore(hor.getEndHour().minusMinutes(minPeriodo)); i.plusMinutes(minPeriodo)) {
-                        horario.add(new casillaHorario(hor.getIdSalon(), i, i.plusMinutes(minPeriodo)));
+                    LocalTime i = hor.getInitHour();
+                    while (i.isBefore(hor.getEndHour().minusMinutes(minPeriodo))) {
+                        System.out.println("Hora: "+i.toString());
+                        casillas.add(new casillaHorario(hor.getIdSalon(), i, i.plusMinutes(minPeriodo)));
+                        i = i.plusMinutes(minPeriodo);
                     }
                     casillasHorario.add(casillas);
                 }

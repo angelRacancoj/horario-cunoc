@@ -43,6 +43,7 @@ public class docenteCursoDB {
                 int idNodo = resultado.getInt("id_p_d_c");
                 int idCurso = resultado.getInt("CURSO_id");
                 int idDocente = resultado.getInt("DOCENTE_id");
+                System.out.println("Nodo:"+idNodo+",Curso:"+idCurso+",Docente:"+idDocente);
                 nodos.add(new nodo(idNodo,idCurso, idDocente));
             }
             System.out.println("------------Consulta Docente Curso--------------");

@@ -19,8 +19,12 @@ public class recorridoHormida {
     public recorridoHormida() {
     }
 
-    public void sumarLongitudCamino(int peso) {
+    public void sumarLongitudCamino(double peso) {
         LongitudRecorrido += peso;
+    }
+
+    public void agregarRecorrido(nodo nodoRecorrido) {
+        camino.add(nodoRecorrido);
     }
 
     public LinkedList<nodo> getCamino() {
@@ -37,6 +41,13 @@ public class recorridoHormida {
 
     public void setLongitudRecorrido(double LongitudRecorrido) {
         this.LongitudRecorrido = LongitudRecorrido;
+    }
+    
+    public void imprimirRecorrido(){
+        System.out.println("\n\n\n\n\nLongitud Camino: "+this.LongitudRecorrido);
+        for (nodo road : this.camino) {
+            road.imprimirDatos();
+        }
     }
 
 }

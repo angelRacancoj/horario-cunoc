@@ -54,6 +54,7 @@ public class constants {
                 alpha = Float.valueOf(resultado.getString("alpha"));
                 beta = Float.valueOf(resultado.getString("beta"));
             }
+            System.out.println("Variables:"+duracionPeriodo+","+feromonas+",H:"+hormigas+",Iteraciones");
             System.out.println("--------Consulta Variables----------");
             resultado.close();
             sentencia.close();
