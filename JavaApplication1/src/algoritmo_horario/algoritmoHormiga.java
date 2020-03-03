@@ -101,6 +101,8 @@ public class algoritmoHormiga {
         }
 
     }
+    
+    
 
     private void enriquecerFeromonas(LinkedList<recorridoHormida> recorrido, double mayorRecorrido) {
         for (int i = 0; i < recorrido.size(); i++) {
